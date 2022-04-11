@@ -1,0 +1,378 @@
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  position: relative;
+  color: #fff;
+  animation: change 10s ease-in-out infinite;
+  font-family: "Roboto", sans-serif;
+  min-width: 300px;
+}
+
+/* Cloud */
+.cloud {
+  width: 260px;
+  height: 90px;
+  background: rgb(236, 239, 241);
+  box-shadow: 1px 1px 4px 4px rgba(236, 239, 241, 0.664);
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+.cloud::after,
+.cloud::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  background: inherit;
+  border-radius: inherit;
+  box-shadow: 0px -4px 4px 4px rgba(236, 239, 241, 0.664);
+}
+.cloud::after {
+  width: 100px;
+  height: 100px;
+  top: -80px;
+  left: -100px;
+}
+
+.cloud::after {
+  width: 90px;
+  height: 90px;
+  top: -50px;
+  left: -20px;
+}
+.cloud::before {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 0px;
+}
+
+/* End cloud */
+
+h1 {
+  font-family: "Luckiest Guy", cursive;
+  color: #32265f;
+  position: relative;
+  top: -70px;
+  margin-bottom: -80px;
+  font-size: 2.5em;
+  text-shadow: 0 0 2px #fff, 0 0 3px #8422c5;
+  line-height: 40px;
+  -webkit-text-stroke: #f2aaf8 1px;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 1em;
+  padding-top: 10px;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+p {
+  margin: 0px;
+}
+
+button {
+  display: inline;
+  margin: 15px;
+  padding: 12px 15px 8px 15px;
+  box-sizing: border-box;
+  background: #885df1;
+  border-width: 2px;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1px;
+  border: 1px solid #885df1;
+  border-radius: 15px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 200ms ease-in-out;
+}
+
+button:hover,
+.selected {
+  color: #32265f;
+  background: #b69ff0;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #ffffff, 0 0 8px #ffffff, 0 0 10px #ffffff;
+  cursor: pointer;
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.container-fluid {
+  text-align: center;
+  background-color: rgba(255, 254, 254, 0.2);
+}
+.container {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.row {
+  margin: 10px 5px;
+  align-items: center;
+}
+
+.rowOutline {
+  text-align: center;
+  background-color: rgba(47, 36, 59, 0.815);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 1px 1px 4px 3px rgba(255, 254, 254, 0.664);
+}
+.forecastweekly {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.discover {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.searchBar {
+  margin-top: 20px;
+  padding: 10px 0px;
+}
+
+.feature {
+  text-align: center;
+  margin: 10px 5px 10px 5px;
+  padding: 10px;
+  background-color: rgba(251, 250, 252, 0.151);
+  align-items: center;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.temp-text {
+  padding-top: 8px;
+  font-size: 2.5em;
+  font-weight: 500;
+}
+
+.temp-text2 {
+  padding-top: 0px;
+  font-size: 2.5em;
+  font-weight: 500;
+}
+.featuredate {
+  padding-top: 5px;
+}
+
+.hours {
+  border: none;
+  border-radius: 25px;
+  box-shadow: 1px 1px 4px 3px rgba(255, 254, 254, 0.664);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 0px 5px 0px;
+  background-color: rgba(47, 36, 59, 0.815);
+}
+
+.hours-temp {
+  padding-top: 5px;
+}
+
+.wind {
+  padding-bottom: 10px;
+}
+
+.wdtext {
+  margin-top: 10px;
+}
+
+.hilo {
+  padding-top: 15px;
+}
+
+/*glow icons*/
+
+.redglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #e60073;
+  -webkit-text-stroke: #e60073 1.5px;
+}
+
+.yellowglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #f4f75e;
+  -webkit-text-stroke: #f4f75e 2px;
+}
+
+.blueglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #00c3e6;
+  -webkit-text-stroke: #00c3e6 2px;
+}
+
+.darkglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #033dff;
+  -webkit-text-stroke: #033dff 2px;
+}
+
+.aquaglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #03ffff;
+  -webkit-text-stroke: #03ffff 2px;
+}
+
+.purpleglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #6e05f7;
+  -webkit-text-stroke: #6e05f7 2px;
+}
+
+.icyglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #78f0f8;
+  -webkit-text-stroke: #78f0f8 2px;
+}
+
+.orangeglow {
+  color: #fafafa;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ffb671;
+  -webkit-text-stroke: #ffb671 2px;
+}
+
+/*Style Icons*/
+
+.iconbig {
+  display: block;
+  font-size: 100px;
+  color: #fafafa;
+  margin: -15px;
+
+  transition: transform 2s ease-in-out;
+}
+
+.iconbig:hover {
+  transform: rotate(360deg);
+}
+
+.iconsml {
+  font-size: 50px;
+  text-align: center;
+  margin: -7px;
+  padding-top: 10px;
+  color: #fafafa;
+}
+
+.iconmed {
+  font-size: 80px;
+  text-align: center;
+  color: #fafafa;
+  transition: transform 2s ease-in-out;
+}
+
+.iconmed:hover {
+  transform: scale(1.1);
+}
+
+.weekly {
+  padding: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.weatherdescription {
+  text-transform: capitalize;
+}
+
+.todaysDate {
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 5px 0px 5px 0px;
+  background-color: rgba(251, 250, 252, 0.151);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.fcButtons {
+  margin-top: 10px;
+  margin-bottom: -105px;
+  margin-left: 2px;
+}
+
+.fcButtons button {
+  margin: 2px;
+}
+
+@media (min-width: 50px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .temp-text {
+    font-size: 1.5em;
+  }
+
+  .temp-text2 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+  h3 {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 315px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .temp-text {
+    font-size: 2em;
+  }
+
+  .temp-text2 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 500px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .temp-text {
+    font-size: 2.5em;
+  }
+  .temp-text2 {
+    font-size: 2.5em;
+  }
+}
