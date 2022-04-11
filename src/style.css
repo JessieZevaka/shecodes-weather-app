@@ -207,6 +207,16 @@ button:hover,
   padding-top: 15px;
 }
 
+.githublink {
+  display: inline;
+  color: rgb(236, 239, 241);
+  padding-bottom: 10px;
+}
+
+.githublink:hover {
+  color: #885df1;
+  text-shadow: 0 0 2px #fff, 0 0 5px #f6fafa, 0 0 8px #f6fafa;
+}
 /*glow icons*/
 
 .redglow {
