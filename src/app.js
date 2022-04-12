@@ -142,6 +142,16 @@ function updatePage() {
   hourlyReportElement.innerHTML = hourlyForecastHTML;
 }
 
+//Loading Icons
+
+function loadIcons() {
+  hourlyReportElement.innerHTML =
+    forecastElement.innerHTML =
+    feature1Element.innerHTML =
+    feature2Element.innerHTML =
+      `<i class="fas fa-spinner fa-spin"></i>`;
+}
+
 //Defalt API call (First Call)
 
 let apiKey = "6a708bcc0ed405fb557dac7cbbae970f";
@@ -234,6 +244,7 @@ function citySearch(event) {
   let cityName = cityInput.value.trim();
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${pageModel.units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(getLocation);
+  loadIcons();
 }
 
 //Geo location
@@ -249,6 +260,8 @@ function showPosition(position) {
 function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
+  cityInput.value = "";
+  loadIcons();
 }
 
 // F button
