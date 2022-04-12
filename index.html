@@ -62,230 +62,54 @@
             type="text"
             placeholder="Enter a city"
             autocomplete="off"
-          />
+          /> 
           <button type="submit" id="get-forecast">Get Forecast</button>
           <button type="submit" id="current-location">
-            Use Current Location
-          </button>
-        </form>
-      </nav>
+            Use Current Location</button>
+         
+     </form>  
+      </nav>  
+      
+     
 
       <!--MAIN FEATURE-->
       <div class="row rowOutline">
-        <div class="col-12">
-          <div class="todaysDate">Today</div>
+         <div class="col-12">
+          <div class="todays-date">Today</div>
         </div>
+
+        
         <div class="col-12 col-sm-6">
-          <div class="feature">
-            <div class="temp-text">
-              <span id="city"></span>
-            </div>
-            <h3 class="featuredate" id="day-time"></h3>
-            <p class="hilo" id="high-low"></p>
-            <p id="feels-like"></p>
-            <p id="humidity"></p>
-            <p class="wind" id="wind"></p>
+          <div id="feature-1" class="feature">
+            <i class="fas fa-spinner fa-spin"></i>
           </div>
         </div>
+
         <div class="col-12 col-sm-6">
-          <div class="feature">
-            <div class="col-12 d-flex align-items-end flex-column fcButtons">
-              <button id="celsius-button" class="selected">°C</button>
-              <button id="farenheit-button">°F</button>
-            </div>
-            <div class="temp-text2">
-              <span id="feature-temp"></span><span id="degree-label"></span>
-            </div>
-
-            <h2
-              class="col-10 offset-1 weatherdescription text-break"
-              id="weather-description"
-            ></h2>
-
-            <div class="iconbig">
-              <i id="feature-icon" class="fa-solid fa-sun mt-2"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div id="feature-2" class="feature">
+             <i class="fas fa-spinner fa-spin"></i>
+           </div>  
+           </div>
+         
+</div>
+   
 
       <!--HOURLY REPORT-->
-      <div class="container container-scroll">
-        <div class="row columns-24">
-          <!--Hour 1-->
-
-          <div class="col-lg-2 col-sm-4 col-6">
-            <div class="hours">
-              <div class="iconsml">
-                <i id="hourly-icon1" class="fa-solid fa-cloud-bolt"></i>
-              </div>
-              <h5 class="hours-temp" id="hourly-hl1"></h5>
-              <h5 class="fw-lighter" id="hourly-time1"></h5>
-            </div>
-          </div>
-          <!--Hour 2-->
-
-          <div class="col-lg-2 col-sm-4 col-6">
-            <div class="hours">
-              <div class="iconsml">
-                <i
-                  id="hourly-icon2"
-                  class="fa-solid fa-cloud-showers-heavy"
-                ></i>
-              </div>
-              <h5 class="hours-temp" id="hourly-hl2"></h5>
-              <h5 class="fw-lighter" id="hourly-time2"></h5>
-            </div>
-          </div>
-
-          <!--Hour 3-->
-
-          <div class="col-lg-2 col-sm-4 col-6">
-            <div class="hours">
-              <div class="iconsml">
-                <i id="hourly-icon3" class="fa-solid fa-cloud"></i>
-              </div>
-              <h5 class="hours-temp" id="hourly-hl3"></h5>
-              <h5 class="fw-lighter" id="hourly-time3"></h5>
-            </div>
-          </div>
-
-          <!--Hour 4-->
-
-          <div class="col-lg-2 col-sm-4 col-6">
-            <div class="hours">
-              <div class="iconsml">
-                <i id="hourly-icon4" class="fa-solid fa-cloud-moon"></i>
-              </div>
-              <h5 class="hours-temp" id="hourly-hl4"></h5>
-              <h5 class="fw-lighter" id="hourly-time4"></h5>
-            </div>
-          </div>
-
-          <!--Hour 5-->
-
-          <div class="col-lg-2 col-sm-4 col-6">
-            <div class="hours">
-              <div class="iconsml">
-                <i id="hourly-icon5" class="fa-solid fa-cloud-moon"></i>
-              </div>
-              <h5 class="hours-temp" id="hourly-hl5"></h5>
-              <h5 class="fw-lighter" id="hourly-time5"></h5>
-            </div>
-          </div>
-
-          <!--Hour 6-->
-
-          <div class="col-lg-2 col-sm-4 col-6">
-            <div class="hours">
-              <div class="iconsml">
-                <i id="hourly-icon6" class="fa-solid fa-moon"></i>
-              </div>
-              <h5 class="hours-temp" id="hourly-hl6"></h5>
-              <h5 class="fw-lighter" id="hourly-time6"></h5>
-            </div>
-          </div>
+      <div class="container">
+        <div id="hourly-report" class="row">
+       <i class="fas fa-spinner fa-spin"></i>
         </div>
       </div>
+
       <!--WEEKLY OVERVIEW-->
-      <!--Day 1-->
-
-      <div class="row rowOutline weekly">
-        <div class="col-12 col-sm-4">
-          <h3 id="name-day1"></h3>
-          <h3 id="description-day1" class="fw-lighter wdtext"></h3>
-        </div>
-        <div class="col-12 col-sm-4">
-          <h3 class="forecastweekly" id="forecast-day1"></h3>
-        </div>
-
-        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
-          <i id="icon-day1" class="fa-solid fa-sun"></i>
-        </div>
-      </div>
-
-      <!--Day 2-->
-
-      <div class="row rowOutline weekly">
-        <div class="col-12 col-sm-4">
-          <h3 id="name-day2"></h3>
-          <h3 id="description-day2" class="fw-lighter wdtext"></h3>
-        </div>
-        <div class="col-12 col-sm-4">
-          <h3 class="forecastweekly" id="forecast-day2"></h3>
-        </div>
-
-        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
-          <i id="icon-day2" class="fa-solid fa-cloud-sun"></i>
-        </div>
-      </div>
-
-      <!--Day 3-->
-
-      <div class="row rowOutline weekly">
-        <div class="col-12 col-sm-4">
-          <h3 id="name-day3"></h3>
-          <h3 id="description-day3" class="fw-lighter wdtext"></h3>
-        </div>
-        <div class="col-12 col-sm-4">
-          <h3 class="forecastweekly" id="forecast-day3"></h3>
-        </div>
-
-        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
-          <i id="icon-day3" class="fa-solid fa-cloud-bolt"></i>
-        </div>
-      </div>
-
-      <!--Day 4-->
-
-      <div class="row rowOutline weekly">
-        <div class="col-12 col-sm-4">
-          <h3 id="name-day4"></h3>
-          <h3 id="description-day4" class="fw-lighter wdtext"></h3>
-        </div>
-        <div class="col-12 col-sm-4">
-          <h3 class="forecastweekly" id="forecast-day4"></h3>
-        </div>
-
-        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
-          <i id="icon-day4" class="fa-solid fa-cloud"></i>
-        </div>
-      </div>
-
-      <!--Day 5-->
-
-      <div class="row rowOutline weekly">
-        <div class="col-12 col-sm-4">
-          <h3 id="name-day5"></h3>
-          <h3 id="description-day5" class="fw-lighter wdtext"></h3>
-        </div>
-        <div class="col-12 col-sm-4">
-          <h3 class="forecastweekly" id="forecast-day5"></h3>
-        </div>
-        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
-          <i id="icon-day5" class="fa-solid fa-cloud-showers-heavy"></i>
-        </div>
-      </div>
-
-      <!--Day 6-->
-
-      <div class="row rowOutline weekly">
-        <div class="col-12 col-sm-4">
-          <h3 id="name-day6"></h3>
-          <h3 id="description-day6" class="fw-lighter wdtext"></h3>
-        </div>
-        <div class="col-12 col-sm-4">
-          <h3 class="forecastweekly" id="forecast-day6"></h3>
-        </div>
-        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
-          <i id="icon-day6" class="fa-solid fa-cloud-showers-heavy"></i>
-        </div>
-      </div>
-
+    <div id="forecast-weekly">
+    <div class="row rowOutline weekly"> <i class="fas fa-spinner fa-spin"></i></div>
+   
+</div>
       <!--Div tag for container-->
     </div>
 
-    <script src="src/index.js"></script>
+    <script src="src/app.js"></script>
     <div class="container">
       <p> <span
         ></span><a

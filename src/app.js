@@ -1,48 +1,25 @@
 //Html element selectors
 
-let temperatureElement = document.getElementById("feature-temp");
-let descriptionElement = document.getElementById("weather-description");
-let cityElement = document.getElementById("city");
-let dateTime = document.getElementById("day-time");
 let cityInput = document.getElementById("search-form");
 let searchButton = document.getElementById("get-forecast");
 let locationButton = document.getElementById("current-location");
-let celsiusButton = document.getElementById("celsius-button");
-let farenheitButton = document.getElementById("farenheit-button");
-let degreeElement = document.getElementById("degree-label");
-let feelsLikeElement = document.getElementById("feels-like");
-let humidityElement = document.getElementById("humidity");
-let highLowElement = document.getElementById("high-low");
-let windSpeedElement = document.getElementById("wind");
-let iconElement = document.getElementById("feature-icon");
+
+let forecastElement = document.getElementById("forecast-weekly");
+let hourlyReportElement = document.getElementById("hourly-report");
+let feature1Element = document.getElementById("feature-1");
+let feature2Element = document.getElementById("feature-2");
 
 //Event listeners
 function intializeListenters() {
   searchButton.addEventListener("click", citySearch);
   locationButton.addEventListener("click", getCurrentPosition);
-  farenheitButton.addEventListener("click", toFarenheit);
-  celsiusButton.addEventListener("click", toCelsius);
 }
 
 //Page Model
 
 let pageModel = {
-  lat: -33,
-  lon: 150,
   units: "metric",
   isMetric: true,
-  city: "",
-  country: "",
-  temp: `<i class="fas fa-spinner fa-spin"></i>`,
-  description: "",
-  feelsLike: "--",
-  humidity: "--",
-  day: "-------",
-  time: "--:--",
-  high: "--",
-  low: "--",
-  windSpeed: "--",
-  icon: "01d",
 };
 
 //icon list
@@ -69,61 +46,100 @@ const iconMap = {
 
 function updatePage() {
   //Feature
-  cityElement.innerHTML = `${pageModel.city}, ${pageModel.country}`;
-  temperatureElement.innerHTML = pageModel.temp;
-  descriptionElement.innerHTML = pageModel.description;
-  humidityElement.innerHTML = `<i class="fa-solid fa-droplet"></i> Humidity: ${pageModel.humidity}%`;
-  dateTime.innerHTML = `${pageModel.day}, ${pageModel.time}`;
-  highLowElement.innerHTML = `<i class="fa-solid fa-temperature-empty"></i> L: ${pageModel.low}° <i class="fa-solid fa-temperature-full"></i> H: ${pageModel.high}°`;
-  iconElement.className = iconMap[pageModel.icon];
+
+  let degreeLabel = "°C";
+  let windSpeedLabel = "km/h";
+  let cClass = "";
+  let fClass = "";
 
   if (pageModel.isMetric) {
-    celsiusButton.classList.add("selected");
-    farenheitButton.classList.remove("selected");
-    degreeElement.innerHTML = "°C";
-    feelsLikeElement.innerHTML = `Feels Like: ${pageModel.feelsLike}°C`;
-    windSpeedElement.innerHTML = `<i class="fa-solid fa-wind"></i> Wind: ${pageModel.windSpeed} km/h`;
+    // celsiusButton.classList.add("selected");
+    // farenheitButton.classList.remove("selected");
+    cClass = "selected";
+    fClass = "";
   } else {
-    celsiusButton.classList.remove("selected");
-    farenheitButton.classList.add("selected");
-    degreeElement.innerHTML = "°F";
-    feelsLikeElement.innerHTML = `Feels Like: ${pageModel.feelsLike}°F`;
-    windSpeedElement.innerHTML = `<i class="fa-solid fa-wind"></i> Wind: ${pageModel.windSpeed} mi/h`;
+    // celsiusButton.classList.remove("selected");
+    // farenheitButton.classList.add("selected");
+
+    degreeLabel = "°F";
+    windSpeedLabel = "mi/h";
+    cClass = "";
+    fClass = "selected";
   }
+
+  //Feature 1
+
+  let feature1HTML = `<div class="temp-text">
+            <span>${pageModel.city}, ${pageModel.country}</span>
+            </div>
+            <h3 class="featuredate">${pageModel.day}, ${pageModel.time}</h3>
+            <p class="hilo"><i class="fa-solid fa-temperature-empty"></i> L: ${pageModel.low}° <i class="fa-solid fa-temperature-full"></i> H: ${pageModel.high}°</p>
+            <p>Feels Like: ${pageModel.feelsLike}${degreeLabel}</p>
+            <p><i class="fa-solid fa-droplet"></i> Humidity: ${pageModel.humidity}%</p>
+            <p class="wind">Wind: ${pageModel.windSpeed} ${windSpeedLabel}</p>`;
+
+  feature1Element.innerHTML = feature1HTML;
+
+  //Feature 2
+
+  let feature2HTML = `
+    <div class="col-12 d-flex align-items-end flex-column fcbuttons">
+              <button id="celsius-button" class="${cClass}" onclick="toCelsius()" >°C</button>
+              <button id="farenheit-button" class="${fClass}" onclick="toFarenheit()">°F</button>
+            </div>
+    <div class="temp-text2">${pageModel.temp}${degreeLabel}</div>
+
+    <h2 class="weatherdescription col-10 offset-1"
+    >${pageModel.description}</h2>
+
+    <div class="iconbig">
+        <i class="${iconMap[pageModel.icon]}"></i>
+    </div>`;
+
+  feature2Element.innerHTML = feature2HTML;
 
   //Weekly
-  let dayNum = 1;
+  let forecastHTML = "";
+
   for (const day of pageModel.weeklyReport) {
-    let nameSetting = document.getElementById("name-day" + dayNum);
-    nameSetting.innerHTML = day.day;
-
-    let descriptionSetting = document.getElementById(
-      "description-day" + dayNum
-    );
-    descriptionSetting.innerHTML = day.description;
-
-    let forecastSetting = document.getElementById("forecast-day" + dayNum);
-    forecastSetting.innerHTML = `<i class="fa-solid fa-temperature-empty"></i> L: ${day.tempMin}° | <i class="fa-solid fa-temperature-full"></i> H: ${day.tempMax}°`;
-
-    let dailyIcon = document.getElementById("icon-day" + dayNum);
-    dailyIcon.className = iconMap[day.icon];
-
-    dayNum++;
+    forecastHTML =
+      forecastHTML +
+      `<div class="row rowOutline weekly">
+        <div class="col-12 col-sm-4 mt-2">
+          <h3>${day.day}</h3>
+          <h3 class="fw-lighter wdtext">${day.description}</h3>
+        </div>
+        <div class="col-12 col-sm-4">
+          <h3 class="forecastweekly">
+            <i class="fa-solid fa-temperature-empty"></i> L: ${
+              day.tempMin
+            } | <i class="fa-solid fa-temperature-full"></i> H: ${day.tempMax}
+          </h3>
+        </div>
+        <div class="col-12 col-sm-4 mt-sm-0 iconmed">
+          <i class="${iconMap[day.icon]}"></i>
+        </div>
+      </div>`;
   }
+  forecastElement.innerHTML = forecastHTML;
 
   //Hourly
+  let hourlyForecastHTML = "";
 
-  let hourNum = 1;
   for (const hoursObject of pageModel.hourlyReport) {
-    let timeSetting = document.getElementById("hourly-time" + hourNum);
-    timeSetting.innerHTML = hoursObject.hour;
-    let tempSetting = document.getElementById("hourly-hl" + hourNum);
-    tempSetting.innerHTML = `${hoursObject.temp}°`;
-    let iconSetting = document.getElementById("hourly-icon" + hourNum);
-    iconSetting.className = iconMap[hoursObject.icon];
-
-    hourNum++;
+    hourlyForecastHTML =
+      hourlyForecastHTML +
+      ` <div class="col-lg-2 col-sm-4 col-6">
+            <div class="hours">
+              <div class="iconsml">
+                <i class="${iconMap[hoursObject.icon]}"></i>
+              </div>
+              <h5 class="hours-temp">${hoursObject.temp}°</h5>
+              <h5 class="fw-lighter">${hoursObject.hour}</h5>
+            </div>
+          </div>`;
   }
+  hourlyReportElement.innerHTML = hourlyForecastHTML;
 }
 
 //Defalt API call (First Call)
@@ -184,7 +200,7 @@ function packageData(response) {
     let dailyDate = toLocalTime(apiDaily.dt, data.timezone_offset);
     newDay.day = dailyDate.day;
 
-    //newDay.time = localDate.time;
+    newDay.time = localDate.time;
     newDay.tempMax = Math.round(apiDaily.temp.max);
     newDay.tempMin = Math.round(apiDaily.temp.min);
     newDay.description = apiDaily.weather[0].main;

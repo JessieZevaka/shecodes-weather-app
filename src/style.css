@@ -109,6 +109,16 @@ button:hover,
   cursor: pointer;
 }
 
+.fcbuttons {
+  margin-top: 10px;
+  margin-bottom: -105px;
+  margin-left: 2px;
+}
+
+.fcbuttons button {
+  margin: 2px;
+}
+
 @keyframes change {
   0% {
     background-position: 0 50%;
@@ -311,7 +321,7 @@ button:hover,
   text-transform: capitalize;
 }
 
-.todaysDate {
+.todays-date {
   border: none;
   border-radius: 10px;
   margin-top: 15px;
@@ -321,16 +331,6 @@ button:hover,
   font-weight: 400;
   font-size: 25px;
   letter-spacing: 1px;
-}
-
-.fcButtons {
-  margin-top: 10px;
-  margin-bottom: -105px;
-  margin-left: 2px;
-}
-
-.fcButtons button {
-  margin: 2px;
 }
 
 @media (min-width: 50px) {
